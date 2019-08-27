@@ -1,0 +1,75 @@
+
+<!--
+// user web server for chrome-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript" src="functions.js"></script>
+  <script src = "https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js" ></script>
+  <script src = "https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+  <script src = "https://www.gstatic.com/firebasejs/5.7.0/firebase-storage.js" ></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+  <link rel="stylesheet" href="cssFile.css">
+
+<script>
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
+
+</head>
+
+<body>
+  <div id="header">
+      <h1 id="headerTitle">Database Upload Project</h1>
+  </div>
+
+  <div class="fullWidth" style="justify-content:center;align-items:center;">
+
+      <div style="border-color: black;border-width: 1px">
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td><input type="text" id="name"></td>
+          </tr>
+          <tr>
+            <td>Description:</td>
+            <td><input type="text" id="description"></td>
+          </tr>
+          <tr>
+            <td>Price:</td>
+            <td><input type="text" id="price"></td>
+          </tr>
+          <tr>
+            <td>Quantity:</td>
+            <td><input type="text" id="quantity"></td>
+          </tr>
+          <tr>
+            <td>Favorite:</td>
+            <td><input type="text" id="favorite"></td>
+          </tr>
+          <tr>
+            <td>Type:</td>
+            <td><input type="radio" name="gender" id="male"> Male
+            <input type="radio" name="gender" id="female"> Female
+            <input type="radio" name="gender" id="kids"> Kids</td>
+            <tr>
+              <td>Click submit then pick picture</td>
+              <td colspan="2"><Button id="button" onclick="sendData();">Submit</button></td>
+            </tr>
+          <tr>
+            <td>Image:</td>
+            <td><input id="images" type="file" /></td>
+          </tr>
+
+      </div>
+  </div>
+
+
+  <div class="footer">
+    <p>  © Copyright by Ouri Alkada ©</p>
+  </div>
+</body>
+
+</html>
