@@ -13,16 +13,24 @@
   <link rel="stylesheet" href="cssFile.css">
 
 <script>
+  // var firebaseConfig = {
+  //   apiKey: "YOUR API KEY",
+  //   authDomain: "YOUR AUTH DOMAIN",
+  //   databaseURL: "YOUR DATABASE URL",
+  //   projectId: "YOUR PROJECT ID",
+  //   storageBucket: "YOUR STORAGE BUCKET",
+  //   messagingSenderId: "YOUR MESSAGING ID",
+  //   appId: "YOUR APP ID"
+  // };
   var firebaseConfig = {
-    apiKey: "YOUR API KEY",
-    authDomain: "YOUR AUTH DOMAIN",
-    databaseURL: "YOUR DATABASE URL",
-    projectId: "YOUR PROJECT ID",
-    storageBucket: "YOUR STORAGE BUCKET",
-    messagingSenderId: "YOUR MESSAGING ID",
-    appId: "YOUR APP ID"
+    apiKey: "AIzaSyAyOkaLq7gmAWbc72Cx4hhx8oKQgPQdH4I",
+    authDomain: "jsos-apparel.firebaseapp.com",
+    databaseURL: "https://jsos-apparel.firebaseio.com",
+    projectId: "jsos-apparel",
+    storageBucket: "jsos-apparel.appspot.com",
+    messagingSenderId: "1039147682085",
+    appId: "1:1039147682085:web:60ccc32eb27018cd"
   };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 </script>
@@ -33,11 +41,28 @@ firebase.initializeApp(firebaseConfig);
   <div id="header">
       <h1 id="headerTitle">Database Upload Project</h1>
   </div>
+  <div class="fullWidth" style="justify-content:center;align-items:center;" id = "table2">
+  <table>
+    <tr>
+      <td>Email:</td>
+      <td><input type="text" id="email"></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><input type="password" id="password" ></td>
+    </tr>
+    <tr >
+      <td colspan="2">
+      <button type="button" id="logInButton" onclick="logInClick();">LogIn</button>
+      </td>
+    </tr>
 
+    </table>
+    </div>
   <div class="fullWidth" style="justify-content:center;align-items:center;">
 
-      <div style="border-color: black;border-width: 1px">
-        <table id = "table">
+      <div style="border-color: black;border-width: 1px" id = "table">
+        <table >
           <tr>
             <td>Name:</td>
             <td><input type="text" id="name"></td>
@@ -73,24 +98,15 @@ firebase.initializeApp(firebaseConfig);
           </tr>
         </table>
 
-        <table id ="table2">
-          <tr>
-            <td>Email:</td>
-            <td><input type="text" id="email"></td>
-          </tr>
-          <tr>
-            <td>Password:</td>
-            <td><input type="text" id="password"></td>
-          </tr>
-          <tr >
-            <td colspan="2">
-            <button type="button" id="logInButton" onclick="logInClick();">LogIn</button>
-            </td>
-          </tr>
 
-          </table>
       </div>
+
+
+
+
   </div>
+
+
 
 
   <div class="footer">

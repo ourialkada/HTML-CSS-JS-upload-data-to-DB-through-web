@@ -11,25 +11,28 @@ function hide() {
 
 function logInClick()
 {
-  firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage);
-alert(errorMessage);
-    // ...
-  });
-  var user = firebase.auth().currentUser;
+  firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value).then(function() {
+// Sign-in successful.
+              var user = firebase.auth().currentUser;
 
-  if (user) {
-  console.log('user' + firebase.auth().currentUser.uid);
-  document.getElementById("table").style.visibility="visible";
-  document.getElementById("table2").style.visibility="hidden";
-  user = "";
-  } else {
-  console.log('no user');
+              if (user) {
 
-  }
+              document.getElementById("table").style.visibility="visible";
+
+              var elem = document.getElementById("table2");
+               return elem.parentNode.removeChild(elem);
+              user = "";
+              }
+              }).catch(function(error) {
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  console.log(errorMessage);
+                  alert(errorMessage);
+                  // ...
+
+                });
+
 
 }
   function sendData() {
@@ -48,8 +51,6 @@ alert(errorMessage);
     }
     else {
 
-
-      console.log("GOOD");
   var t = "Men";
     if (document.getElementById("male").checked)
     {
