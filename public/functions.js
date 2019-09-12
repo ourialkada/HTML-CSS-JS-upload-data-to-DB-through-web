@@ -1,6 +1,37 @@
+function hide() {
+   document.getElementById("table").style.visibility="hidden";
 
+   firebase.auth().signOut().then(function() {
 
+}).catch(function(error) {
+  // An error happened.
+});
 
+}
+
+function logInClick()
+{
+  firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+alert(errorMessage);
+    // ...
+  });
+  var user = firebase.auth().currentUser;
+
+  if (user) {
+  console.log('user' + firebase.auth().currentUser.uid);
+  document.getElementById("table").style.visibility="visible";
+  document.getElementById("table2").style.visibility="hidden";
+  user = "";
+  } else {
+  console.log('no user');
+
+  }
+
+}
   function sendData() {
     var name = document.getElementById("name").value;
     var description = document.getElementById("description").value;
@@ -9,22 +40,6 @@
     var favorite = document.getElementById("favorite").value;
 
 
-
-firebase.auth().signInWithEmailAndPassword('a@a.com', 'asasas').catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  console.log(errorMessage);
-  // ...
-});
-
-var user = firebase.auth().currentUser;
-
-if (user) {
-console.log('user');
-} else {
-console.log('no user');
-}
 
 
     if (name == "" || description == "" || price == "" || quantity == "" || favorite == "" )
@@ -100,7 +115,6 @@ console.log('no user');
         function() {
           // Upload completed successfully, now we can get the download URL
           uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-            console.log('File available at', downloadURL);
             let shirtsRef = db.collection('JsosShirts').doc(t).collection("AllShirts");
 
             shirtsRef.add({
@@ -112,7 +126,6 @@ console.log('no user');
               quantity: Number(quantity),
               ID: shirtsRef.id
             }).then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
     db.collection('JsosShirts').doc(t).collection("AllShirts").doc(docRef.id).update({ID: docRef.id});
 });
 
